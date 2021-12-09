@@ -4,3 +4,6 @@ img {
 p {
   width: 80%;
 }
+.pull-left {
+  max-width: 72%;
+}
