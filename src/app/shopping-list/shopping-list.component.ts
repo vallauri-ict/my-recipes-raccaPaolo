@@ -15,4 +15,19 @@ export class ShoppingListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  addIngredient = (ingredient: IngredientModel) => {
+    let data =
+      this.ingredients.find(
+        (aus) => aus.name.toUpperCase() === ingredient.name.toUpperCase()
+      ) ?? null;
+    if (!data) this.ingredients.push(ingredient);
+    else {
+      this.ingredients.map((aus) =>
+        aus.name.toUpperCase() === ingredient.name.toUpperCase()
+          ? (aus.amount += ingredient.amount)
+          : null
+      );
+    }
+  };
 }
