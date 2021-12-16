@@ -1,0 +1,28 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Spaghetti alla chitarra",
+      "description": "Un particolare tipo di pasta che...",
+      "imagePath": "https://i.kym-cdn.com/entries/icons/original/000/033/701/PTSD_Chihuahua_Banner.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Lasagne alla bolognese",
+      "description": "Pasta emiliana molto calorica sempre presente nei pranzi domenicali...",
+      "imagePath": "https://www.gustissimo.it/articoli/ricette/lasagne-cannelloni/lasagna-senza-besciamella.jpeg"
+    },
+    {
+      "id": 3,
+      "name": "Gnocchi ai formaggi",
+      "description": "Raviole Val Varaita",
+      "imagePath": "https://www.vapropi.it/wp-content/uploads/2019/09/SC.G101.01.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Tiramisu",
+      "description": "Con tipico mascarpone ",
+      "imagePath": "https://www.trevisotoday.it/~media/horizontal-hi/44494491491566/tiramisu-pavesini-2.jpg"
+    }
+  ]
+}

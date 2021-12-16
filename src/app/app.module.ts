@@ -10,7 +10,7 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
     ShoppingListComponent,
     ShoppingEditComponent,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
