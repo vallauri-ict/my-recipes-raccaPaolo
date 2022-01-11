@@ -8,7 +8,7 @@
       <a
         href="#"
         class="list-group-item"
-        *ngFor="let ingredient of ingredients"
+        *ngFor="let ingredient of shoppingListService.ingredients"
       >
         {{ ingredient.name }} - {{ ingredient.amount }}
       </a>
