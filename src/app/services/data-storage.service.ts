@@ -11,7 +11,7 @@ export class DataStorageService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public getRequest = (endpoint: string) => {
+  public sendGetRequest = (endpoint: string) => {
     return this.httpClient.get(this.REST_API_SERVER + endpoint);
   };
 

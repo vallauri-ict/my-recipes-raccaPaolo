@@ -11,7 +11,7 @@ export class RecipeService {
   constructor(private dataStorage: DataStorageService) {}
 
   getRecipes = () => {
-    this.dataStorage.getRequest('recipes').subscribe(
+    this.dataStorage.sendGetRequest('recipes').subscribe(
       (data) => {
         this.recipes = data as RecipeModel[];
       },

@@ -10,7 +10,7 @@ export class ShoppingListService {
   constructor(private dataStorageService: DataStorageService) {}
 
   getIngredients = () => {
-    this.dataStorageService.getRequest('shopping-list').subscribe(
+    this.dataStorageService.sendGetRequest('shopping-list').subscribe(
       (data) => (this.ingredients = data as IngredientModel[]),
       (err) => console.error(err)
     );
@@ -36,8 +36,8 @@ export class ShoppingListService {
   };
 
   addIngredients = (ingredients: IngredientModel[]) => {
-    this.ingredients.push(...ingredients);
-    //  todo: invio al server
+    // this.ingredients.push(...ingredients);
+    ingredients.map((ingr) => this.addIngredient(ingr));
   };
 
   postIngredient = (ingredient: IngredientModel) => {
@@ -46,6 +46,7 @@ export class ShoppingListService {
       .subscribe(
         (succ) => {
           console.log(succ);
+          this.getIngredients();
         },
         (err) => {
           console.error(err);
