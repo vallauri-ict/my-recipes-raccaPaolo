@@ -12,6 +12,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DropdownDirective } from './directive/dropdown.directive';
+import { HighlightDirective } from './directive/highlight.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { DropdownDirective } from './directive/dropdown.directive';
     ShoppingListComponent,
     ShoppingEditComponent,
     DropdownDirective,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
