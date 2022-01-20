@@ -10,7 +10,7 @@ import {
   selector: '[appHighlight]',
 })
 export class HighlightDirective implements OnInit {
-  @Input('appHighlight') hoverColor: string = 'Cyan';
+  @Input('appHighlight') hoverColor: string | undefined = 'Cyan';
   @Input() defaultColor: string = 'LightCyan';
   @HostBinding('style.backgroundColor') backgroundColor: string =
     this.defaultColor;
@@ -21,7 +21,9 @@ export class HighlightDirective implements OnInit {
   }
 
   @HostListener('mouseenter') highlight() {
-    this.backgroundColor = this.hoverColor;
+    this.backgroundColor = (this.hoverColor as string)
+      ? this.hoverColor
+      : 'cyan';
   }
   @HostListener('mouseleave') reset() {
     this.backgroundColor = this.defaultColor;
