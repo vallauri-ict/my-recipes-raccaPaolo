@@ -13,8 +13,4 @@ export class HeaderComponent implements OnInit {
   public collapsed: boolean = true;
 
   ngOnInit(): void {}
-
-  onSelect = (param: string) => {
-    this.featureSelected.emit(param);
-  };
 }

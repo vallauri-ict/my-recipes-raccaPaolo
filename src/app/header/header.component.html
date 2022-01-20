@@ -8,7 +8,7 @@
       >
         <span class="icon-bar" *ngFor="let i of [1, 2, 3]"></span>
       </button>
-      <a href="#" class="navbar-brand">Recipe book</a>
+      <a [routerLink]="['/recipes']" class="navbar-brand">Recipe book</a>
     </div>
     <div
       class="navbar-collapse"
@@ -16,16 +16,20 @@
       (window:resize)="collapsed = true"
     >
       <ul class="nav navbar-nav">
-        <li><a href="#" (click)="onSelect('recipe')">Recipes</a></li>
-        <li>
-          <a href="#" (click)="onSelect('shopping-list')">Shopping list</a>
+        <li routerLinkActive="active">
+          <a [routerLink]="['/recipes']">Recipes</a>
+        </li>
+        <li routerLinkActive="active">
+          <a
+            [routerLink]="['/shopping-list']"
+            (click)="onSelect('shopping-list')"
+            >Shopping list</a
+          >
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" appDropdown>
-          <a class="dropdown-toggle" href="#"
-            >Manage <span class="caret"></span
-          ></a>
+          <a class="dropdown-toggle">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a>Save data</a></li>
             <li><a>Fetch data</a></li>

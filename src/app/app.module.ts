@@ -13,6 +13,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { HttpClientModule } from '@angular/common/http';
 import { DropdownDirective } from './directive/dropdown.directive';
 import { HighlightDirective } from './directive/highlight.directive';
+import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { HighlightDirective } from './directive/highlight.directive';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
