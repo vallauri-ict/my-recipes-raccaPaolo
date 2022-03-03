@@ -18,4 +18,13 @@ export class RecipeService {
       (err) => console.error(err)
     );
   };
+
+  getRecipe = (index: number) => {
+    this.dataStorage.sendGetRequest('recipes/' + index).subscribe(
+      (data) => {
+        this.selectedRecipe = data as RecipeModel;
+      },
+      (err) => console.error(err)
+    );
+  };
 }
