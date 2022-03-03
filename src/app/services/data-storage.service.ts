@@ -18,7 +18,7 @@ export class DataStorageService {
   public sendPostRequest(endpoint: string, ingredient: IngredientModel) {
     return this.httpClient.post(this.REST_API_SERVER + endpoint, ingredient);
   }
-  public sendPatchtRequest(endpoint: string, data: object) {
+  public sendPatchRequest(endpoint: string, data: object) {
     return this.httpClient.patch(this.REST_API_SERVER + endpoint, data);
   }
   public sendDeleteRequest(endpoint: string) {

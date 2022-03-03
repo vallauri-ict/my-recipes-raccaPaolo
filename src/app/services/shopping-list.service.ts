@@ -55,7 +55,7 @@ export class ShoppingListService {
   };
   patchIngredient = (data: object, id: number) => {
     this.dataStorageService
-      .sendPatchtRequest('shopping-list/' + id, data)
+      .sendPatchRequest('shopping-list/' + id, data)
       .subscribe(
         (succ) => {
           console.log(succ);

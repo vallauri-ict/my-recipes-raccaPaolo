@@ -25,14 +25,13 @@ export class RecipeEditComponent implements OnInit {
   editMode: string = '';
 
   ngOnInit(): void {
-    console.log('in');
     this.activatedRoute.params.subscribe((params: Params) => {
-      console.log(params);
       if (params['id']) {
         if (this.recipeService.selectedRecipe) {
           this.recipeName = this.recipeService.selectedRecipe.name;
           this.recipeDescription =
             this.recipeService.selectedRecipe.description;
+          this.recipeImagePath = this.recipeService.selectedRecipe.imagePath;
           this.recipeIngredients = '';
           for (let ingredient of this.recipeService.selectedRecipe
             .ingredients) {
@@ -49,7 +48,6 @@ export class RecipeEditComponent implements OnInit {
         this.editMode = 'edit';
         this.buttonText = 'Save Changes';
       } else {
-        // add mode
         this.editMode = 'add';
         this.buttonText = 'Add New Recipe';
       }
@@ -64,16 +62,21 @@ export class RecipeEditComponent implements OnInit {
       this.recipeImagePath,
       ingredients
     );
+    if (this.recipeImagePath.indexOf('fakepath') !== -1)
+      recipe.imagePath = this.base64Image;
     if (this.editMode == 'add') {
-      // this.recipeService.postRecipe(recipe);
+      delete recipe._id;
+      this.recipeService.postRecipe(recipe);
     } else {
-      // this.recipeService.postRecipe(this.recipeService.selectedRecipe.id, recipe);
+      this.recipeService.patchRecipe(
+        this.recipeService.selectedRecipe._id,
+        recipe
+      );
     }
-    alert('Recipe Saved!');
     this.router.navigate(['/recipes']);
   }
 
-  manageIngredients(ingredients: string) {
+  manageIngredients(ingredients: string): IngredientModel[] {
     let retVal = [];
     let items = ingredients.split('\n');
     for (const item of items) {
@@ -82,5 +85,17 @@ export class RecipeEditComponent implements OnInit {
       retVal.push(ingredient);
     }
     return retVal;
+  }
+
+  base64Image: any = '';
+  onSelectFile(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      let filePath = event.target.files[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(filePath);
+      reader.onload = () => {
+        this.base64Image = reader.result?.toString();
+      };
+    }
   }
 }
