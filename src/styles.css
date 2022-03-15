@@ -2,3 +2,7 @@
 a {
   cursor: pointer;
 }
+.modal-open > .fade {
+  opacity: 1 !important;
+  background-color: transparent;
+}

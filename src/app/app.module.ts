@@ -17,6 +17,8 @@ import { HighlightDirective } from './directive/highlight.directive';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DeleteRecipeComponent } from './recipes/modals/delete-recipe/delete-recipe.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     HighlightDirective,
     RecipeStartComponent,
     RecipeEditComponent,
+    DeleteRecipeComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     HttpClientModule,
     AppRoutingModule,
     RouterModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
