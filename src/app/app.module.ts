@@ -17,8 +17,9 @@ import { HighlightDirective } from './directive/highlight.directive';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DeleteRecipeComponent } from './recipes/modals/delete-recipe/delete-recipe.component';
+import { NgxBootstrapConfirmModule } from 'ngx-bootstrap-confirm';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,7 @@ import { DeleteRecipeComponent } from './recipes/modals/delete-recipe/delete-rec
     HttpClientModule,
     AppRoutingModule,
     RouterModule,
-    NgbModule,
+    NgxBootstrapConfirmModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -4,6 +4,7 @@ import { RecipeService } from '../../services/recipe.service';
 import { ShoppingListService } from '../../services/shopping-list.service';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeleteRecipeComponent } from '../modals/delete-recipe/delete-recipe.component';
+import { NgxBootstrapConfirmService } from 'ngx-bootstrap-confirm';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -16,7 +17,8 @@ export class RecipeDetailComponent implements OnInit {
     private shoppingListService: ShoppingListService,
     private activeRoute: ActivatedRoute,
     private router: Router,
-    private _modalService: NgbModal
+    private _modalService: NgbModal,
+    private ngxBootstrapConfirmService: NgxBootstrapConfirmService
   ) {}
 
   ngOnInit(): void {
@@ -38,11 +40,17 @@ export class RecipeDetailComponent implements OnInit {
   };
 
   onDeleteRecipe = () => {
-    const modal = this._modalService.open(DeleteRecipeComponent);
-    modal.result.then(
-      (result) =>
-        this.recipeService.deleteRecipe(this.recipeService.selectedRecipe._id),
-      (cancel) => console.log('Delete aborted', cancel)
-    );
+    this.ngxBootstrapConfirmService
+      .confirm({
+        title: 'Sei sicuro di voler eliminare la ricetta selezionata?',
+        confirmLabel: 'Confermo',
+        declineLabel: 'Annulla',
+      })
+      .then((res) => {
+        if (res)
+          this.recipeService.deleteRecipe(
+            this.recipeService.selectedRecipe._id
+          );
+      });
   };
 }
