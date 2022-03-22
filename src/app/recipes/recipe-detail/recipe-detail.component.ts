@@ -43,7 +43,7 @@ export class RecipeDetailComponent implements OnInit {
     this.ngxBootstrapConfirmService
       .confirm({
         title: 'Sei sicuro di voler eliminare la ricetta selezionata?',
-        confirmLabel: 'Confermo',
+        confirmLabel: 'Conferma',
         declineLabel: 'Annulla',
       })
       .then((res) => {
